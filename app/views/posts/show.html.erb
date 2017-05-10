@@ -1,0 +1,21 @@
+<container style="background-color:lightblue;
+    font-family:Vernada;
+    text-align:center;">
+<h2>게시물 상세보기</h2>
+<h3><%= @post.title%></h3>
+<hr>
+<%= @post.content %>
+<hr>
+
+<form action="/comments/create/" method="post">
+    <input type="hidden" name="post_id" value="<%=@post.id%>">
+    <input type="text" name="comment_content" placeholder="내용">
+    <br>
+    <input type="submit" value="작성하기">
+</form> 
+
+<h4 style>댓글목록</h4>
+<% @comments.each do |c| %>
+   <p>-<%= c.content%></p>
+<% end %>
+</container>

@@ -1,0 +1,18 @@
+<container style="background-color:white;
+    font-family:Vernada;
+    text-align:center;">
+<h1>지혜의 SNS</h1>
+<a href="/posts/new">작성하기</a>
+<br>
+
+<% @posts.each do |p| %>
+    <a href="/posts/show/<%=p.id%>"><%= p.title %></a>
+    <br>
+
+    <form action="/posts/destroy/<%= p.id %>" method="post">
+        <input type="submit" value="삭제">
+
+    </form>
+    <hr>
+<%end%>
+</container>
